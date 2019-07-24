@@ -1,0 +1,114 @@
+glast_01,191,274,4	script	NhaÌ thaìm hiêÒm	757,3,4,{
+
+set .@wk1,600;
+set .@wk2,70;
+set .@kwk1,1000;
+set .@kwk2,100;
+set .@cur_spell,countitem(6608);
+set .@cur_conta,countitem(6755);
+
+mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+mes "Xin chaÌo maòo hiêÒm giaÒ, ta laÌ Merly, ngıõÌi ğang câÌn thu thâòp nhıŞng tinh thêÒ pheìp thuâòt:";
+mes itemlink(6608)+" hoãòc ";
+mes itemlink(6755)+".";
+mes "Nêìu coì, ngıõi coì thêÒ trao ğôÒi võìi ta ğêÒ ğôÒi lâìy ";
+mes itemlink(4608)+" hoãòc ";
+mes itemlink(4609)+".";
+mes "Sao, coì muôìn trao ğôÒi không?!~";
+
+switch ( select ( "Coì chıì !","Không!" ) ) {
+	case 1:
+		next;
+		mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+		mes "ÔÌ, ngıõi muôìn ğôÒi lâìy thıì naÌo?";
+		
+		switch ( select ( "Ta muôìn ğôÒi lâìy ^006400White Knight Card^000000.","Ta muôìn ğôÒi lâìy ^006400Khalitzburg Knight Card^000000.","HuÒy boÒ." ) ) {
+			case 1:
+				next;
+				mes "Ngıõi muôìn ğôÒi lâìy "+itemlink(4608)+"? Vâòy thiÌ phaÒi ğıa cho ta "+.@wk1+" "+itemlink(6608)+" hoãòc "+.@wk2+" "+itemlink(6755)+".";
+				switch ( select ( .@wk1+" Coagulated Spell (hiêòn coì ^0000CD"+.@cur_spell+"^000000)",.@wk2+" Contaminated Magic (hiêòn coì ^0000CD"+.@cur_conta+"^000000)","HuÒy boÒ." ) ) {
+					case 1:
+						next;
+						if ( countitem(6608) < .@wk1 ) {
+							mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+							mes "Thâòt ğaìng tiêìc, ngıõi không coì ğuÒ "+itemlink(6608)+".";
+							close;
+						} else {
+							delitem 6608,.@wk1;
+							getitem 4608,1;
+							npctalk "Xong rôÌi, chuìc ngıõi thaÌnh công trong con ğıõÌng maòo hiêÒm giaÒ.";
+							close;
+						}
+					case 2:
+						next;
+						if ( countitem(6755) < .@wk2 ) {
+							mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+							mes "Thâòt ğaìng tiêìc, ngıõi không coì ğuÒ "+itemlink(6755)+".";
+							close;
+						} else {
+							delitem 6755,.@wk2;
+							getitem 4608,1;
+							npctalk "Xong rôÌi, chuìc ngıõi thaÌnh công trong con ğıõÌng maòo hiêÒm giaÒ.";
+							close;
+						}
+					case 3:
+						next;
+						mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+						mes "Thâòt ğaìng tiêìc, taòm biêòt.";
+						close;
+				}
+				close;
+			case 2:
+				next;
+				mes "Ngıõi muôìn ğôÒi lâìy "+itemlink(4609)+"? Vâòy thiÌ phaÒi ğıa cho ta "+.@kwk1+" "+itemlink(6608)+" hoãòc "+.@kwk2+" "+itemlink(6755)+".";
+				switch ( select ( .@kwk1+" Coagulated Spell (hiêòn coì ^0000CD"+.@cur_spell+"^000000)",.@kwk2+" Contaminated Magic (hiêòn coì ^0000CD"+.@cur_conta+"^000000)","HuÒy boÒ." ) ) {
+					case 1:
+						next;
+						if ( countitem(6608) < .@kwk1 ) {
+							mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+							mes "Thâòt ğaìng tiêìc, ngıõi không coì ğuÒ "+itemlink(6608)+".";
+							close;
+						} else {
+							delitem 6608,.@kwk1;
+							getitem 4609,1;
+							npctalk "Xong rôÌi, chuìc ngıõi thaÌnh công trong con ğıõÌng maòo hiêÒm giaÒ.";
+							close;
+						}
+					case 2:
+						next;
+						if ( countitem(6755) < .@kwk2 ) {
+							mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+							mes "Thâòt ğaìng tiêìc, ngıõi không coì ğuÒ "+itemlink(6755)+".";
+							close;
+						} else {
+							delitem 6755,.@kwk2;
+							getitem 4609,1;
+							npctalk "Xong rôÌi, chuìc ngıõi thaÌnh công trong con ğıõÌng maòo hiêÒm giaÒ.";
+							close;
+						}
+					case 3:
+						next;
+						mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+						mes "Thâòt ğaìng tiêìc, taòm biêòt.";
+						close;
+				}
+				close;
+			case 3:
+				next;
+				mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+				mes "Thâòt ğaìng tiêìc, taòm biêòt.";
+				close;
+		}
+	case 2:
+		next;
+		mes "[^6B8E23 Thaìm hiêÒm gia Merly ^000000]";
+		mes "Thâòt ğaìng tiêìc, taòm biêòt.";
+		close;
+}
+close;
+
+OnTouch:
+	npctalk "Ta coì thêÒ trao ğôÒi White Knight Card hoãòc Khalitzburg Knight Card, muôìn biêìt thêm thông tin ı? Noìi chuyêòn võìi ta!";
+	end;
+}
+
